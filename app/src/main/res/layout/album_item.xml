@@ -1,0 +1,84 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="album"
+            type="com.example.itunesapp.network.Album" />
+        <variable
+            name="clickListener"
+            type="com.example.itunesapp.overview.AlbumListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="@{()-> clickListener.onClick(album)}">
+
+    <TextView
+        android:id="@+id/title"
+        android:text="@{album.collectionName}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:breakStrategy="high_quality"
+        app:layout_constraintStart_toEndOf="@+id/album_img"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="albumName"
+        />
+
+    <TextView
+        android:id="@+id/artist"
+        android:text="@{album.artistName}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:breakStrategy="high_quality"
+        app:layout_constraintStart_toEndOf="@+id/album_img"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="artistName"
+        />
+
+    <TextView
+        android:id="@+id/release"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toEndOf="@+id/album_img"
+        app:layout_constraintTop_toBottomOf="@+id/genre"
+        tools:text="00.00.0000" />
+
+    <TextView
+        android:id="@+id/genre"
+        android:text="@{album.primaryGenreName}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toEndOf="@+id/album_img"
+        app:layout_constraintTop_toBottomOf="@+id/artist"
+        tools:text="genre" />
+
+    <ImageView
+        android:id="@+id/album_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:adjustViewBounds="true"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic"
+        android:contentDescription="@string/album_artwork_description" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

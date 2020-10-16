@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">iTunesApp</string>
+    <string name="search_button_title">search</string>
+    <string name="album_artwork_description">Album artwork</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
